@@ -6,6 +6,7 @@
 #include "hardware/adc.h"
 #include "hardware/dma.h"
 #include "hardware/pwm.h"
+#include "hardware/irq.h"
 
 #define CAPTURE_CHANNEL 0
 #define TAILLE_CAPTURE 5
@@ -23,7 +24,7 @@ uint slice_num_hf;
 
 int capture;
 
-int valchganged = 0;
+int valchanged = 0;
 
 
 //coefficients de filtres passe haut 2kHz et passe bas 2kHz
@@ -40,7 +41,7 @@ float lf_b1 = 1.965986335159269;
 float lf_b2 = -0.9666074108551588;
 
 
-void proceed_transfer(){ //fonction déclanchée si le fifo a une valeur
+void proceed_transfer(){ //fonction déclenchée si le fifo a une valeur
   valchanged = 1;
 }
 
